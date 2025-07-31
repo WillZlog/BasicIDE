@@ -31,6 +31,62 @@ import time
 import threading
 from collections import defaultdict
 
+class AIFixer:
+    """AI-powered code fixing using OpenAI GPT-4o"""
+    
+    def __init__(self):
+        self.api_key = os.getenv('OPENAI_API_KEY')
+        self.api_url = "https://api.openai.com/v1/chat/completions"
+        
+    def fix_code(self, code: str, error_message: str, language: str = "python") -> str:
+        """Fix code using AI based on error message"""
+        if not self.api_key:
+            return "Error: OpenAI API key not found. Please set OPENAI_API_KEY environment variable."
+        
+        try:
+            prompt = self._create_prompt(code, error_message, language)
+            
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": "gpt-4o",
+                "messages": [
+                    {"role": "system", "content": "You are an expert programmer. Fix the code based on the error message. Return only the corrected code, no explanations."},
+                    {"role": "user", "content": prompt}
+                ],
+                "max_tokens": 2000,
+                "temperature": 0.1
+            }
+            
+            response = requests.post(self.api_url, headers=headers, json=data, timeout=30)
+            
+            if response.status_code == 200:
+                result = response.json()
+                fixed_code = result['choices'][0]['message']['content'].strip()
+                return fixed_code
+            else:
+                return f"API Error: {response.status_code} - {response.text}"
+                
+        except Exception as e:
+            return f"Error: {str(e)}"
+    
+    def _create_prompt(self, code: str, error_message: str, language: str) -> str:
+        """Create prompt for AI code fixing"""
+        return f"""
+Language: {language}
+
+Code with error:
+{code}
+
+Error message:
+{error_message}
+
+Please fix the code and return only the corrected version:
+"""
+
 class VSCodeFileIcons:
     """Custom file type icons for VS Code-like appearance"""
     
@@ -924,6 +980,9 @@ class VSCodeMainWindow(QMainWindow):
         self.terminal_dock.setWidget(self.terminal)
         self.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, self.terminal_dock)
         
+        # Initialize AI fixer
+        self.ai_fixer = AIFixer()
+        
         # Create Visual Code Flow dock
         self.flow_dock = QDockWidget("Visual Code Flow", self)
         self.flow_dock.setAllowedAreas(Qt.DockWidgetArea.RightDockWidgetArea)
@@ -1112,6 +1171,11 @@ class VSCodeMainWindow(QMainWindow):
         health_btn = toolbar.addAction("Health")
         health_btn.setToolTip("Code Health Dashboard")
         health_btn.triggered.connect(self.check_code_health)
+        
+        # AI Fix button
+        ai_fix_btn = toolbar.addAction("AI Fix")
+        ai_fix_btn.setToolTip("Fix code using AI")
+        ai_fix_btn.triggered.connect(self.ai_fix_code)
         
     def create_editor_tab(self, filename, file_path=None):
         """Create a new editor tab"""
@@ -1308,6 +1372,58 @@ class VSCodeMainWindow(QMainWindow):
                 self.terminal.execute_command()
             else:
                 QMessageBox.warning(self, "Warning", "No code to run")
+                
+    def ai_fix_code(self):
+        """Fix code using AI based on terminal output"""
+        current_editor = self.editor_area.currentWidget()
+        if not current_editor:
+            QMessageBox.warning(self, "Warning", "No active editor")
+            return
+            
+        code = current_editor.toPlainText()
+        if not code.strip():
+            QMessageBox.warning(self, "Warning", "No code to fix")
+            return
+            
+        # Get the last error from terminal
+        terminal_text = self.terminal.terminal_output.toPlainText()
+        lines = terminal_text.split('\n')
+        
+        # Find the last error message
+        error_message = ""
+        for line in reversed(lines):
+            if any(keyword in line.lower() for keyword in ['error', 'exception', 'traceback', 'syntaxerror']):
+                error_message = line.strip()
+                break
+        
+        if not error_message:
+            QMessageBox.information(self, "Info", "No recent errors found in terminal")
+            return
+            
+        # Determine language
+        language = "python"  # default
+        if hasattr(current_editor, 'file_path') and current_editor.file_path:
+            ext = os.path.splitext(current_editor.file_path)[1].lower()
+            if ext == '.js':
+                language = "javascript"
+            elif ext == '.html':
+                language = "html"
+            elif ext == '.css':
+                language = "css"
+            elif ext == '.json':
+                language = "json"
+        
+        # Fix code using AI
+        self.terminal.terminal_output.append("\n🤖 AI is analyzing and fixing the code...")
+        fixed_code = self.ai_fixer.fix_code(code, error_message, language)
+        
+        if fixed_code.startswith("Error:"):
+            QMessageBox.critical(self, "AI Error", fixed_code)
+        else:
+            # Replace the code in the editor
+            current_editor.setPlainText(fixed_code)
+            self.terminal.terminal_output.append("✅ Code has been fixed by AI!")
+            QMessageBox.information(self, "Success", "Code has been fixed by AI!")
                 
     def toggle_terminal(self):
         """Toggle terminal visibility"""

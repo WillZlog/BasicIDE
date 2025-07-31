@@ -17,14 +17,14 @@ def read_requirements():
         return [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="basicide",
+    name="basicIDE",
     version="1.3.0",
-    author="BasicIDE Team",
-    author_email="your-email@example.com",
-    description="Advanced Python IDE with AI-Powered Features",
+    author="Albin Zieme",
+    author_email="williamalbin.ze@gmail.com",
+    description="Basic IDE with AI-Powered Features",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/BasicIDE",
+    url="https://github.com/WillZLog/BasicIDE",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
