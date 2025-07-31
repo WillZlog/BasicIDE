@@ -21,7 +21,7 @@ def test_import():
         print(f"❌ Failed to import IDE module: {e}")
         return False
     except Exception as e:
-        if "libEGL" in str(e) or "display" in str(e).lower():
+        if "libEGL" in str(e) or "display" in str(e).lower() or "xcb" in str(e).lower():
             print("⚠️  GUI libraries not available (expected in CI), but module structure is valid")
             return True
         else:
@@ -43,7 +43,7 @@ def test_main_function():
             print("❌ Main function not found")
             return False
     except Exception as e:
-        if "libEGL" in str(e) or "display" in str(e).lower():
+        if "libEGL" in str(e) or "display" in str(e).lower() or "xcb" in str(e).lower():
             print("⚠️  GUI libraries not available (expected in CI), but main function exists")
             return True
         else:
@@ -52,7 +52,7 @@ def test_main_function():
 
 def test_requirements():
     """Test that required dependencies are available"""
-    required_modules = ['PyQt6', 'requests']
+    required_modules = ['requests']  # Only test requests, PyQt6 will be tested separately
     missing_modules = []
     
     for module in required_modules:
@@ -69,6 +69,23 @@ def test_requirements():
     else:
         print("✅ All required modules available")
         return True
+
+def test_pyqt6_availability():
+    """Test PyQt6 availability separately with better error handling"""
+    try:
+        import PyQt6
+        print("✅ PyQt6 available")
+        return True
+    except ImportError:
+        print("❌ PyQt6 not available")
+        return False
+    except Exception as e:
+        if "libEGL" in str(e) or "display" in str(e).lower() or "xcb" in str(e).lower():
+            print("⚠️  PyQt6 available but GUI libraries not accessible (expected in CI)")
+            return True
+        else:
+            print(f"❌ PyQt6 error: {e}")
+            return False
 
 def test_file_structure():
     """Test that the IDE file structure is correct"""
@@ -116,6 +133,7 @@ def main():
         test_file_structure,
         test_syntax_check,
         test_requirements,
+        test_pyqt6_availability,
         test_import,
         test_main_function
     ]
