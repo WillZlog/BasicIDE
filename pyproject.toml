@@ -60,7 +60,7 @@ Repository = "https://github.com/WillZLog/BasicIDE"
 "Release Notes" = "https://github.com/WillZLog/BasicIDE/releases"
 
 [project.scripts]
-basicide = "vscode_clone:main"
+basicide = "ide:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

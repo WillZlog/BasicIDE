@@ -29,7 +29,7 @@ cd BasicIDE
 pip install -r requirements.txt
 
 # Run the IDE
-python3 vscode_clone.py
+python3 ide.py
 ```
 
 ## 🎯 Areas for Contribution
@@ -118,7 +118,7 @@ pytest --cov=.
 ```python
 import pytest
 from PyQt6.QtWidgets import QApplication
-from vscode_clone import VSCodeEditor
+from ide import VSCodeEditor
 
 class TestEditor:
     @pytest.fixture

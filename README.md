@@ -108,7 +108,7 @@ export OPENAI_API_KEY="your-api-key-here"
 
 4. **Run the IDE**
 ```bash
-python3 vscode_clone.py
+python3 ide.py
 ```
 
 ## 📖 Usage Guide
@@ -116,7 +116,7 @@ python3 vscode_clone.py
 ### 🎯 Getting Started
 
 1. **Launch BasicIDE**
-   - Run `python3 vscode_clone.py`
+   - Run `python3 ide.py`
    - The IDE opens with a VS Code-like interface
 
 2. **Open a Project**
@@ -194,7 +194,7 @@ Project → Install Package
 
 ```
 BasicIDE/
-├── vscode_clone.py          # Main application entry point
+├── ide.py                   # Main application entry point
 ├── ai_fix.py               # AI-powered code fixing
 ├── requirements.txt        # Python dependencies
 ├── README.md              # This file
@@ -241,7 +241,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 #### "Python command not found"
 ```bash
 # Use python3 instead
-python3 vscode_clone.py
+python3 ide.py
 ```
 
 #### "PyQt6 not found"

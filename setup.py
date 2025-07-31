@@ -44,7 +44,7 @@ setup(
     install_requires=read_requirements(),
     entry_points={
         "console_scripts": [
-            "basicide=vscode_clone:main",
+            "basicide=ide:main",
         ],
     },
     include_package_data=True,

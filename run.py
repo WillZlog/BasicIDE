@@ -11,7 +11,7 @@ def main():
     """Launch BasicIDE"""
     try:
         # Import and run the main IDE
-        from vscode_clone import main
+        from ide import main
         main()
     except ImportError as e:
         print(f"Error: Could not import required modules. {e}")
