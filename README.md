@@ -92,7 +92,7 @@ A modern, feature-rich Python IDE built with PyQt6 that replicates Visual Studio
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/BasicIDE.git
+git clone https://github.com/WillZLog/BasicIDE.git
 cd BasicIDE
 ```
 
@@ -277,10 +277,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/BasicIDE/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/BasicIDE/discussions)
-- **Email**: your-email@example.com
-
+- **Issues**: [GitHub Issues](https://github.com/WillZLog/BasicIDE/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/WillZLog/BasicIDE/discussions)
+- **Email**: williamalbinze@gmail.com
 ## 🚀 Roadmap
 
 ### Upcoming Features
@@ -298,6 +297,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the BasicIDE Team**
+**Made with ❤️ by WillZLog**
 
 *Transform your coding experience with AI-powered development tools!* 

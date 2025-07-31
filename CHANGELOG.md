@@ -105,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/yourusername/BasicIDE)
-- [Documentation](https://github.com/yourusername/BasicIDE#readme)
-- [Issues](https://github.com/yourusername/BasicIDE/issues)
-- [Releases](https://github.com/yourusername/BasicIDE/releases) 
+- [GitHub Repository](https://github.com/WillZLog/BasicIDE)
+- [Documentation](https://github.com/WillZLog/BasicIDE#readme)
+- [Issues](https://github.com/WillZLog/BasicIDE/issues)
+- [Releases](https://github.com/WillZLog/BasicIDE/releases) 

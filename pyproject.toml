@@ -9,10 +9,10 @@ description = "Advanced Python IDE with AI-Powered Features"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "BasicIDE Team", email = "your-email@example.com"}
+    {name = "WillZLog", email = "williamalbinze@gmail.com"}
 ]
 maintainers = [
-    {name = "BasicIDE Team", email = "your-email@example.com"}
+    {name = "WillZLog", email = "williamalbinze@gmail.com"}
 ]
 keywords = ["ide", "python", "editor", "development", "ai", "code-analysis"]
 classifiers = [
@@ -53,11 +53,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/BasicIDE"
-Documentation = "https://github.com/yourusername/BasicIDE#readme"
-Repository = "https://github.com/yourusername/BasicIDE"
-"Bug Tracker" = "https://github.com/yourusername/BasicIDE/issues"
-"Release Notes" = "https://github.com/yourusername/BasicIDE/releases"
+Homepage = "https://github.com/WillZLog/BasicIDE"
+Documentation = "https://github.com/WillZLog/BasicIDE#readme"
+Repository = "https://github.com/WillZLog/BasicIDE"
+"Bug Tracker" = "https://github.com/WillZLog/BasicIDE/issues"
+"Release Notes" = "https://github.com/WillZLog/BasicIDE/releases"
 
 [project.scripts]
 basicide = "vscode_clone:main"

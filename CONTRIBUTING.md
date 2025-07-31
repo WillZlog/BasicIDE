@@ -22,7 +22,7 @@ Thank you for your interest in contributing to BasicIDE! This document provides 
 ### Local Development
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/BasicIDE.git
+git clone https://github.com/WillZLog/BasicIDE.git
 cd BasicIDE
 
 # Install dependencies

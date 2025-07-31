@@ -19,8 +19,8 @@ def read_requirements():
 setup(
     name="basicIDE",
     version="1.3.0",
-    author="Albin Zieme",
-    author_email="williamalbin.ze@gmail.com",
+    author="WillZLog",
+    author_email="williamalbinze@gmail.com",
     description="Basic IDE with AI-Powered Features",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
@@ -53,8 +53,8 @@ setup(
     },
     keywords="ide, python, editor, development, ai, code-analysis",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/BasicIDE/issues",
-        "Source": "https://github.com/yourusername/BasicIDE",
-        "Documentation": "https://github.com/yourusername/BasicIDE#readme",
+        "Bug Reports": "https://github.com/WillZLog/BasicIDE/issues",
+        "Source": "https://github.com/WillZLog/BasicIDE",
+        "Documentation": "https://github.com/WillZLog/BasicIDE#readme",
     },
 ) 
