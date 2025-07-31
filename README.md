@@ -6,6 +6,26 @@ A modern, feature-rich Python IDE built with PyQt6 that replicates Visual Studio
 ![PyQt6](https://img.shields.io/badge/PyQt6-6.0+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+## 📸 Screenshots
+
+### Python Development
+![Python Development](docs/screenshots/py.png)
+*VS Code-like interface with Python syntax highlighting, integrated terminal, and advanced features*
+
+### Web Development
+![Web Development](docs/screenshots/html.png)
+*Multi-language support with HTML/CSS editing and live preview capabilities*
+
+## 🚀 Quick Demo
+
+**See BasicIDE in action!** The screenshots above showcase:
+
+- **🎯 Python Development**: Syntax highlighting, integrated terminal, and AI-powered features
+- **🌐 Web Development**: HTML/CSS editing with live preview and multi-language support
+- **🕸️ Visual Code Flow**: Real-time code structure analysis and visualization
+- **📊 Health Dashboard**: Code quality metrics and optimization suggestions
+- **🤖 AI Code Fixing**: Automatic error detection and correction
+
 ## ✨ Features
 
 ### 🎯 Core IDE Features
@@ -15,6 +35,13 @@ A modern, feature-rich Python IDE built with PyQt6 that replicates Visual Studio
 - **File Explorer**: Tree-view with custom file type icons
 - **Integrated Terminal**: Full-featured terminal with virtual environment support
 - **Tab Management**: Multiple file editing with unsaved changes indicators
+
+### 🏆 What Makes BasicIDE Special
+- **🎨 Visual Code Flow**: Unique AST-based code visualization (shown in screenshots)
+- **🤖 AI-Powered Fixing**: GPT-4o integration for automatic error correction
+- **📊 Real-time Health Metrics**: Code quality analysis and optimization suggestions
+- **📦 Smart Project Templates**: Pre-configured project scaffolding
+- **🔧 Integrated Package Management**: Visual dependency management
 
 ### 🤖 AI-Powered Features
 - **AI Code Fixer**: Automatic error detection and GPT-4o powered fixes
